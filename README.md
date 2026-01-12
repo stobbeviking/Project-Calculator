@@ -1,0 +1,1 @@
+This project is an on-screen calculator built using HTML, CSS, and JavaScript. It combines all the core concepts learned so far, including layout, styling, DOM manipulation, and event handling, into a functional and interactive application.

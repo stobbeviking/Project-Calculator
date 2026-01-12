@@ -75,8 +75,8 @@ for (let i = 0; i < operators.length; i++) {
 
     if (firstNumber !== "" && signs !== "" && secondNumber !== "") {
       const resultCon = operate(firstNumber, signs, secondNumber);
-      display.value = resultCon;
-      firstNumber = resultCon.toString();
+      display.value = resultCon.toFixed(2);
+      firstNumber = resultCon;
       secondNumber = "";
     }
     signs = e.target.dataset.value;
@@ -88,9 +88,9 @@ for (let i = 0; i < operators.length; i++) {
 equals.addEventListener("click", () => {
   if (firstNumber !== "" && signs !== "" && secondNumber !== "") {
     const finalResult = operate(firstNumber, signs, secondNumber);
-    display.value = finalResult;
+    display.value = finalResult.toFixed(2);
 
-    firstNumber = finalResult.toString();
+    firstNumber = finalResult;
     secondNumber = "";
     signs = "";
   }

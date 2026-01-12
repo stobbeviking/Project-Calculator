@@ -72,16 +72,15 @@ for (let i = 0; i < numbers.length; i++) {
 
 for (let i = 0; i < operators.length; i++) {
   operators[i].addEventListener("click", (e) => {
-    signs = e.target.dataset.value;
-    if (firstNumber !== "" && signs !== "" && secondNumber !== "") {
-      const finalResult = operate(firstNumber, signs, secondNumber);
-      display.value = finalResult;
 
-      firstNumber = finalResult.toString();
+    if (firstNumber !== "" && signs !== "" && secondNumber !== "") {
+      const resultCon = operate(firstNumber, signs, secondNumber);
+      display.value = resultCon;
+      firstNumber = resultCon.toString();
       secondNumber = "";
-      signs = "";
     }
-    return;
+    signs = e.target.dataset.value;
+
   });
 
 }

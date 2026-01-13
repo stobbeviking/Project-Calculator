@@ -9,14 +9,7 @@ let signs = ""
 let secondNumber = ""
 const btnDot = document.getElementById("dot")
 
-btnDot.addEventListener("click", () => {
-  if (btnDot != "") {
-    btnDot.disabled = true;
-    btnDot.style.backgroundcolor = "tomato";
-  } else {
-    btnDot.disabled = false;
-  }
-})
+
 
 function add(a, b) {
   return a + b

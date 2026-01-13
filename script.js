@@ -9,7 +9,10 @@ let signs = ""
 let secondNumber = ""
 const btnDot = document.getElementById("dot")
 
+btnDot.addEventListener("click", () => {
 
+  btnDot.removeEventListener("click", () => { })
+})
 
 function add(a, b) {
   return a + b

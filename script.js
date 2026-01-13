@@ -52,21 +52,16 @@ function operate(n1, signs, n2) {
 
 for (let i = 0; i < numbers.length; i++) {
   numbers[i].addEventListener("click", function (e) {
+    const value = e.target.dataset.value;
 
-    const value =
-      e.target.dataset.value;
     if (value === "") return;
     if (signs === "") {
       firstNumber += value;
       display.value = firstNumber;
-
-    }
-    else {
+    } else {
       secondNumber += value;
       display.value = secondNumber;
-
     }
-
   })
 }
 
@@ -101,6 +96,7 @@ clear.addEventListener("click", () => {
   secondNumber = "";
   signs = "";
   display.value = "";
+
 });
 
 

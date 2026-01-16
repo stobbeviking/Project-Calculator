@@ -4,7 +4,11 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: hsl(0, 0%, 70%);
+  background-image: url("woow.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
 
 button {
@@ -16,6 +20,7 @@ button {
   background-color: #333333;
   color: white;
   cursor: pointer;
+
 }
 
 #calculator {
@@ -66,5 +71,6 @@ button:hover {
   border-style: solid;
   border-color: tomato;
   font-weight: bold;
-  font-size: 50px;
+  font-size: 60px;
+  box-shadow: 0px 0px 15px 10px orangered
 }

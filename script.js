@@ -9,11 +9,6 @@ let signs = ""
 let secondNumber = ""
 const btnDot = document.getElementById("dot")
 
-btnDot.addEventListener("click", () => {
-
-  btnDot.removeEventListener("click", () => { })
-})
-
 function add(a, b) {
   return a + b
 }
@@ -45,25 +40,31 @@ function operate(n1, signs, n2) {
   }
 }
 
-
 for (let i = 0; i < numbers.length; i++) {
   numbers[i].addEventListener("click", function (e) {
     const value = e.target.dataset.value;
 
     if (value === "") return;
+    if (value === ".") {
+      btnDot.disabled = true;
+    }
+
     if (signs === "") {
       firstNumber += value;
       display.value = firstNumber;
+
     } else {
       secondNumber += value;
       display.value = secondNumber;
     }
+    console.log(`${firstNumber},${secondNumber},${signs}`)
   })
+
 }
 
 for (let i = 0; i < operators.length; i++) {
   operators[i].addEventListener("click", (e) => {
-
+    btnDot.disabled = false;
     if (firstNumber !== "" && signs !== "" && secondNumber !== "") {
       const resultCon = operate(firstNumber, signs, secondNumber);
       display.value = resultCon.toFixed(2);
@@ -71,28 +72,27 @@ for (let i = 0; i < operators.length; i++) {
       secondNumber = "";
     }
     signs = e.target.dataset.value;
-
   });
-
 }
-
 equals.addEventListener("click", () => {
-  if (firstNumber !== "" && signs !== "" && secondNumber !== "") {
-    const finalResult = operate(firstNumber, signs, secondNumber);
+  if (firstNumber === "" && signs === "" && secondNumber === "") return;
+  const finalResult = operate(firstNumber, signs, secondNumber);
+
+  if (Number.isInteger(finalResult)) {
+    display.value = finalResult.toFixed(0);
+  } else {
     display.value = finalResult.toFixed(2);
-
-    firstNumber = finalResult;
-    secondNumber = "";
-    signs = "";
   }
-
+  firstNumber = finalResult;
+  secondNumber = "";
+  signs = "";
 })
 clear.addEventListener("click", () => {
   firstNumber = "";
   secondNumber = "";
   signs = "";
   display.value = "";
-
+  btnDot.disabled = false;
 });
 
 
